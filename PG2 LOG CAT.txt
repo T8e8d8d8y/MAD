@@ -1,0 +1,53 @@
+package com.example.program2;
+
+import android.os.Bundle;
+import android.app.Activity;
+import android.view.Menu;
+import android.util.*;
+
+public class MainActivity extends Activity {
+String tag="You are";
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        Log.d(tag,"in the Oncreate() Method");
+    }
+
+public void onStart()
+{
+	super.onStart();
+	Log.d(tag,"in the Oncreate() Method");
+}
+public void onResume()
+{
+	super.onResume();
+	Log.d(tag,"in the onResume() Method");
+}
+
+public void onPause()
+{
+	super.onPause();
+	Log.d(tag,"in the onPause() Method");
+}
+
+public void onStop()
+{
+	super.onStop();
+	Log.d(tag,"in the onStop() Method");
+}
+
+public void onDestroy()
+{
+	super.onDestroy();
+	Log.d(tag,"in the onDestroy() Method");
+}
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+    }
