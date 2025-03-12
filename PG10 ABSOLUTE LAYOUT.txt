@@ -1,0 +1,32 @@
+<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
+   xmlns:app="http://schemas.android.com/apk/res-auto"
+   xmlns:tools="http://schemas.android.com/tools"
+   android:layout_width="fill_parent"
+   android:layout_height="fill_parent"
+   android:orientation="vertical"
+   tools:context=".MainActivity">
+
+   <!--Creating a text view for heading on below line-->
+
+   <!-- creating a text view for sub heading on below line-->
+   <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_x="150dp"
+      android:layout_y="400dp"
+      android:text="@string/Hello World"
+      android:textColor="@android:color/black"
+      android:textSize="18sp"
+      android:textStyle="bold" />
+
+   <TextView
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_x="100dp"
+       android:layout_y="351dp"
+       android:text="@string/Absolute Layout in Android"
+       android:textColor="@android:color/black"
+       android:textSize="20sp"
+       android:textStyle="bold" />
+
+</AbsoluteLayout>

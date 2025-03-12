@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Copy Text from Files</title>
+</head>
+<body>
+    <h1>Click a button to copy text from a file:</h1>
+
+    <!-- Buttons for each file -->
+    <button onclick="copyText('ARITHMETIC OPERATION USING SWITCH CASE.txt')">ARITHMETIC OPERATION USING SWITCH CASE</button><br>
+    <button onclick="copyText('BIODATA.txt')">BIODATA</button><br>
+    <button onclick="copyText('BIRTHDAY COUNTDOWN.txt')">BIRTHDAY COUNTDOWN</button><br>
+    <button onclick="copyText('CHECKING LOWERCASE.txt')">CHECKING LOWERCASE</button><br>
+    <button onclick="copyText('CHESS BOARD.txt')">CHESS BOARD</button><br>
+    <button onclick="copyText('CONTACT FORM.txt')">CONTACT FORM</button><br>
+    <button onclick="copyText('DISPLAY COLORS.txt')">DISPLAY COLORS</button><br>
+    <button onclick="copyText('INSERT NEW ITEM IN AN ARRAY.txt')">INSERT NEW ITEM IN AN ARRAY</button><br>
+    <button onclick="copyText('INSERTING AND FETCHING DATA FORM AN DATABASE.txt')">INSERTING AND FETCHING DATA FORM AN DATABASE</button><br>
+    <button onclick="copyText('OBJECTS AND METHODS.txt')">OBJECTS AND METHODS</button><br>
+    <button onclick="copyText('PALINDROME.txt')">PALINDROME</button><br>
+    
+
+    <!-- Hidden textarea to store text -->
+    <textarea id="textArea" style="position: absolute; top: -9999px;"></textarea>
+
+    <script>
+        // Replace this with the correct URL of your GitHub repository
+        const baseGitHubUrl = "https://raw.githubusercontent.com/T8e8d8d8y/T8e8d8d8y.github.io/main/";
+
+        // Function to copy text from the file
+        function copyText(fileName) {
+            // Construct the URL for the file on GitHub
+            const fileUrl = baseGitHubUrl + fileName;
+
+            // Fetch the file content from GitHub
+            fetch(fileUrl)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.text();
+                })
+                .then(content => {
+                    // Get the hidden textarea
+                    const textArea = document.getElementById('textArea');
+                    textArea.value = content; // Set the content of the file to the textarea
+
+                    // Select the text in the textarea
+                    textArea.select();
+                    textArea.setSelectionRange(0, 99999); // For mobile devices
+
+                    // Copy the text to the clipboard
+                    document.execCommand('copy');
+
+                    // Alert user
+                    alert('Copied text from ' + fileName);
+                })
+                .catch(error => {
+                    console.error('Error fetching the file:', error);
+                    alert('There was an error fetching the file.');
+                });
+        }
+    </script>
+</body>
+</html>
